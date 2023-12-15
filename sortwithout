@@ -1,0 +1,40 @@
+const data = {
+  "centers": [
+    {
+      "center_id": 1,
+      "center_name": "Center A",
+      "DisplayOrder": 3
+    },
+    {
+      "center_id": 2,
+      "center_name": "Center B",
+      "DisplayOrder": 1
+    },
+    {
+      "center_id": 3,
+      "center_name": "Center C",
+      "DisplayOrder": 2
+    }
+  ]
+};
+
+// Function to search for center by center_name
+function searchCenterByName(name) {
+  for (let i = 0; i < data.centers.length; i++) {
+    if (data.centers[i].center_name.toLowerCase() === name.toLowerCase()) {
+      return data.centers[i]; // Return the center object if found
+    }
+  }
+  return null; // Return null if center is not found
+}
+
+// Example search for "Center A"
+const searchTerm = prompt("enter the searching element")
+const foundCenter = searchCenterByName(searchTerm);
+
+if (foundCenter) {
+  console.log("Center found:");
+  console.log(foundCenter);
+} else {
+  console.log("Center not found.");
+}
