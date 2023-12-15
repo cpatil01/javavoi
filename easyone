@@ -1,0 +1,45 @@
+const data = {
+  "centers": [
+    {
+      "center_id": 1,
+      "center_name": "india",
+      "DisplayOrder": 3
+    },
+    {
+      "center_id": 2,
+      "center_name": "canada",
+      "DisplayOrder": 1
+    },
+    {
+      "center_id": 3,
+      "center_name": "china",
+      "DisplayOrder": 2
+    }
+  ]
+};
+
+function searchCenterByName(searchTerm) {
+  const lowercaseSearchTerm = searchTerm.toLowerCase();
+  const foundCenters = [];
+
+  for (let i = 0; i < data.centers.length; i++) {
+    const lowercaseCenterName = data.centers[i].center_name.toLowerCase();
+    if (lowercaseCenterName.includes(lowercaseSearchTerm)) {
+      foundCenters.push(data.centers[i]);
+    }
+  }
+
+  return foundCenters;
+}
+
+const userInput = prompt("Enter a center name or part of it:");
+const foundCenters = searchCenterByName(userInput);
+
+if (foundCenters.length > 0) {
+  console.log("Centers found:");
+  foundCenters.forEach(center => {
+    console.log(center);
+  });
+} else {
+  console.log("No centers found for the given search term.");
+}
