@@ -1,0 +1,42 @@
+const data = {
+  "centers": [
+    {
+      "center_id": 1,
+      "center_name": "india",
+      "DisplayOrder": 3
+    },
+    {
+      "center_id": 2,
+      "center_name": "canada",
+      "DisplayOrder": 1
+    },
+    {
+      "center_id": 3,
+      "center_name": "china",
+      "DisplayOrder": 2
+    }
+  ]
+};
+
+// Function to search for center by center_name (including partial matches)
+function searchCenterByName(name) {
+  const searchTerm = name.toLowerCase(); // Convert search term to lowercase for case-insensitive comparison
+  const foundCenters = data.centers.filter(center =>
+    center.center_name.toLowerCase().includes(searchTerm)
+  );
+
+  return foundCenters;
+}
+
+// Example search for "ind"
+const searchTerm = "ind";
+const foundCenters = searchCenterByName(searchTerm);
+
+if (foundCenters.length > 0) {
+  console.log("Centers found:");
+  foundCenters.forEach(center => {
+    console.log(center);
+  });
+} else {
+  console.log("No centers found for the given search term.");
+}
