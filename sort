@@ -1,0 +1,12 @@
+// Sorting the centers array based on DisplayOrder
+data.centers.sort((a, b) => {
+  if (a.DisplayOrder < b.DisplayOrder) return -1;
+  if (a.DisplayOrder > b.DisplayOrder) return 1;
+  return 0;
+});
+
+// Displaying the center names in the sorted order
+console.log("Center Names in Display Order:");
+data.centers.forEach(center => {
+  console.log(center.center_name);
+});
