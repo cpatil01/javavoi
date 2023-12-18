@@ -1,0 +1,19 @@
+function searchByName(name) {
+  const searchTerm = name.toLowerCase();
+  const result = [];
+
+  for (let i = 0; i < product.length; i++) {
+    const centerName = product[i].CenterName.toLowerCase();
+    if (centerName.includes(searchTerm)) {
+      result.push(product[i]);
+    }
+  }
+
+  return result;
+}
+
+// Example usage:
+const searchTerm = prompt("enter center name: "); // Input from the user
+const searchResult = searchByName(searchTerm);
+
+console.log(searchResult);
